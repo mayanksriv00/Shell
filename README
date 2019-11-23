@@ -1,0 +1,91 @@
+*********** README ************
+
+This file contains step by step details to operate this project.
+
+1. FILES INFORMATION
+
+	
+   The project contains multiple files 
+   1. main.c: This file contains the main funtion of the project. That futher calles the correspondings class for processing. 
+   2. my_execute.c: This file contails the details of the terminal implementaion and providing support to the system external command.
+   3. myshell_command.c: This file contains multiple funtions that run build in commands: "exit", "cd", "pwd" and "set".
+   4. myls.c: This is a standalone program that works as an replica of "ls -l"
+   5. my_pipe.c: This file contain only pipe implementation function.
+   6. my_io.c: This file contain only one function to implement io redirection.
+   7. backgr.c: This file contais function that support background process.
+   8. Makefile: A makefile to merge all program together.
+
+2. HOW TO RUN
+   1. In the folder where makefile is present type:
+	1. make : this will run all the commands
+			or
+	2. make all: this will also run all the commands together
+
+   All the 7 files mentionedin section 1 will compile using gcc compiler to create one executable file.
+
+	3. Now once make command is executed type:
+		1. ./output
+
+   ./output will start the terminal
+
+ 
+3. FUNCTIONALITY SUPPORT
+
+   This project support all the features asked in assignment.
+
+   1. It support build in commands: "exit","cd","pwd","set".
+   2. It also support CTRL-D(End of File)
+   3. It also support external command "myls" 
+   4. It also support all external unix commands.
+   5. It also support pipe functionality (2 pipe). "Ex command|commad|command
+   6. It also support I/O redirections. "Ex: command>file1 , command<file1, command<file1>file2
+   7. It also support background process. (&)
+ 
+4. Example commands
+   1. cd: THis will change directory
+   2. pwd: This will print current path
+   3. exit: Thill exit the terminal
+   4. set: To set the environment variable
+	
+	"set MYPATH=<path>"                               :Path should be the path where myls is present
+							NOTE: Terminal path is not UNIX system path
+   5. CTRL-D: THis will terminate
+   6. myls: THis will print data like "ls -l" including extra time
+  	
+	"./myls <path or no_path>"
+		OR
+        If MYPATH set then
+	
+	"myls <pah or no_path>"
+   7. PIPE: As this project support 2 pipes implementation
+
+	1. One pipe
+	
+	   "ps|more"
+
+	2. Two pipe <wc will apprear in 2 micro-sec delay>
+
+	   "ps|more|wc"
+
+   8. I/O redirection: This project support all 3 modes of redirection specified.
+
+	1. command1<file
+
+	  "ps>file1.txt"                        <This will transfer ps data to file1.txt>
+
+	2. command>file
+
+	   "more>file1.txt"			<This will display the data of file1.txt to STDOUT>
+
+	3. command1<file1>file2	
+	
+	   "more<file1.txt>file2.txt"		<This will redirect file1.txt data to more and then to file2.txt>
+ 
+   9. Background: To run a background process use <command &>
+
+	1. command &
+
+           "<./a.out &>                         
+
+
+  
